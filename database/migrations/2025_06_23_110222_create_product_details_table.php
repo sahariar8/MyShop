@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('img2');
             $table->string('img3');
             $table->string('img4');
-            $table->longText('desc');
+            $table->longText('des');
             $table->string('color');
             $table->string('size');
             $table->foreignId('product_id')->constrained()->restrictOnDelete()->cascadeOnUpdate();

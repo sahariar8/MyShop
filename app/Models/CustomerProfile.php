@@ -10,6 +10,7 @@ class CustomerProfile extends Model
         'cus_name',
         'cus_add',
         'cus_city',
+        'cus_img',
         'cus_state',
         'cus_postcode',
         'cus_country',

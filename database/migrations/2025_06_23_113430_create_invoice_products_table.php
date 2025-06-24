@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('invoice_products', function (Blueprint $table) {
             $table->id();
-            $table->sring('qty');
+            $table->string('qty');
             $table->string('sale_price');
             $table->foreignId('invoice_id')->constrained('invoices')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreignId('product_id')->constrained('products')->restrictOnDelete()->cascadeOnUpdate();
