@@ -4,6 +4,8 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductReviewController;
+use App\Http\Controllers\ProductWishController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\TokenAuthenticate;
@@ -34,7 +36,8 @@ Route::get('product-list/{search}',[ProductController::class,'ListProductBySearc
 Route::get('product-slider-list',[ProductController::class,'ListProductSlider']);
 
 //Review
-Route::get('review-list/{product_id}',[ProductController::class,'ListReviewByProduct']);
+Route::get('review-list/{product_id}',[ProductReviewController::class,'ListReviewByProduct']);
+Route::post('create-review',[ProductReviewController::class,'CreateReview'])->middleware([TokenAuthenticate::class]);
 
 //Auth
 Route::get ('user-login/{userEmail}',[UserController::class,'UserLogin'])->name('login');
@@ -45,3 +48,13 @@ Route::get('logout',[UserController::class,'UserLogout']);
 
 Route::post('create-profile',action: [ProfileController::class,'CreateProfile'])->middleware([TokenAuthenticate::class]);
 Route::get('get-profile',action: [ProfileController::class,'GetProfile'])->middleware([TokenAuthenticate::class]);
+
+//wishList
+
+Route::get('create-wishlist/{product_id}',[ProductWishController::class,'CreateWishList'])->middleware([TokenAuthenticate::class]);
+Route::get('get-wishlist',[ProductWishController::class,'GetWishList'])->middleware([TokenAuthenticate::class]);
+Route::get('delete-wishlist/{product_id}',[ProductWishController::class,'DeleteWishList'])->middleware([TokenAuthenticate::class]);
+
+//Product Cart
+
+

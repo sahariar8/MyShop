@@ -56,12 +56,5 @@ class ProductController extends Controller
         return ResponseHelper::Out('success', $data, 200);
     }
 
-    public function ListReviewByProduct(Request $request)
-    {
-        
-        $data = ProductReview::where('product_id',$request->product_id)->with(['profile' => function($q){
-            $q->select('id','cus_name','cus_img');
-        }])->get();
-        return ResponseHelper::Out('success', $data, 200);
-    }
+    
 }
