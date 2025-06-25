@@ -92,4 +92,5 @@ class InvoiceController extends Controller
         $invoiceDetails = InvoiceProduct::where('invoice_id', $invoice_id)->where('user_id',$user_id)->with('product')->get();
         return ResponseHelper::Out('success',array($invoiceDetails),200);
     }
+
 }

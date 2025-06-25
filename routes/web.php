@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductReviewController;
 use App\Http\Controllers\ProductWishController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SslcommerzAccountController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\TokenAuthenticate;
 use Illuminate\Support\Facades\Route;
@@ -68,3 +69,9 @@ Route::get('delete-cart/{product_id}',[CartController::class,'DeleteCart'])->mid
 Route::post('create-invoice',[InvoiceController::class,'CreateInvoice'])->middleware([TokenAuthenticate::class]);
 Route::get('get-invoice',[InvoiceController::class,'GetInvoiceList'])->middleware([TokenAuthenticate::class]);
 Route::get('invoice-product-list/{invoice_id}',[InvoiceController::class,'InvoiceProductList'])->middleware([TokenAuthenticate::class]);
+
+//payment
+
+Route::post('PaymentSuccess',[SslcommerzAccountController::class,'PaymentSuccess']);
+Route::post('PaymentFail',[SslcommerzAccountController::class,'PaymentFail']);
+Route::post('PaymentCancel',[SslcommerzAccountController::class,'PaymentCancel']);
