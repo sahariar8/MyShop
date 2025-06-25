@@ -11,6 +11,23 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+     public function WishList()
+    {
+        return view('pages.wish-list-page');
+    }
+
+
+    public function CartListPage()
+    {
+        return view('pages.cart-list-page');
+    }
+
+
+    public function Details()
+    {
+        return view('pages.details-page');
+    }
     public function ListProductByCategory(Request $request)
     {
 
