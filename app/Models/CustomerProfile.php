@@ -14,7 +14,7 @@ class CustomerProfile extends Model
         'cus_state',
         'cus_postcode',
         'cus_country',
-        'cus_fax',
+        'cus_phone',
         'ship_name',
         'ship_add',
         'ship_city',

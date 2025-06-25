@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductReviewController;
@@ -57,4 +59,12 @@ Route::get('delete-wishlist/{product_id}',[ProductWishController::class,'DeleteW
 
 //Product Cart
 
+Route::post('create-cart',[CartController::class,'CreateCart'])->middleware([TokenAuthenticate::class]);
+Route::get('get-cart',[CartController::class,'GetCart'])->middleware([TokenAuthenticate::class]);
+Route::get('delete-cart/{product_id}',[CartController::class,'DeleteCart'])->middleware([TokenAuthenticate::class]);
 
+//Invoice Create
+
+Route::post('create-invoice',[InvoiceController::class,'CreateInvoice'])->middleware([TokenAuthenticate::class]);
+Route::get('get-invoice',[InvoiceController::class,'GetInvoiceList'])->middleware([TokenAuthenticate::class]);
+Route::get('invoice-product-list/{invoice_id}',[InvoiceController::class,'InvoiceProductList'])->middleware([TokenAuthenticate::class]);
